@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="block">
     <div class="card">
   <div class="c_body">
     <div :class="product.class"></div>
@@ -11,14 +12,19 @@
 <!--    <div class="circle"><div class="weight">0 , 5 кг</div></div>-->
     <div class="tex">{{product.weight}}</div>
   </div>
+      <div class="change">
       <div class="text">Что сидишь? Порадуй котэ, <span class="buy">купи</span><span class="memepoint">.</span></div>
+      <div class="text_hover">Печень утки разварная с артишоками. <span class="buy">купи</span><span class="memepoint">.</span></div>
+    </div>
+    </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "product.class"
+  name: "productCard",
+  props: ["product"]
 }
 </script>
 
@@ -35,6 +41,12 @@ export default {
   border: 4px solid #1698D9;
   position: relative;
   border-radius: 12px;
+}
+.c_body:hover {
+  border: 4px solid #E52E7A;
+}
+.c_body:hover .tex{
+  background-color: #E52E7A;
 }
 .slog{
   position: absolute;
@@ -158,4 +170,31 @@ export default {
   text-align: center;
   margin: 14px;
 }
+.text_hover{
+  bottom: 0;
+  color: white;
+  text-align: center;
+  margin: 14px;
+}
+.change{
+  overflow:hidden;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  margin: 14px;
+}
+.tex, .text_hover{
+  float:left;
+  transition: all 0.5s;
+}
+.change:hover .tex{
+  margin-left:-2000px;
+}
+.text_hover{
+  margin-left:-400px;
+}
+.change:hover .text_hover{
+  margin-left:0;
+}
+
 </style>
