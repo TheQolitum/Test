@@ -9,13 +9,18 @@
     <div class="tasty">{{product.name}}</div>
     <div class="stock">{{product.nodeTypeString}}</div>
     <div class="cat"></div>
-<!--    <div class="circle"><div class="weight">0 , 5 кг</div></div>-->
     <div class="tex">{{product.weight}}</div>
   </div>
+
       <div class="change">
-      <div class="text">Что сидишь? Порадуй котэ, <span class="buy">купи</span><span class="memepoint">.</span></div>
-      <div class="text_hover">Печень утки разварная с артишоками. <span class="buy">купи</span><span class="memepoint">.</span></div>
+        <div class="text">
+          <p>Что сидишь? Порадуй котэ, <span class="buy">купи</span><span class="memepoint">.</span></p>
+        </div>
+        <div class="text_hover">
+          <p>{{product.description}}</p>
+        </div>
     </div>
+
     </div>
     </div>
   </div>
@@ -42,12 +47,12 @@ export default {
   position: relative;
   border-radius: 12px;
 }
-.c_body:hover {
-  border: 4px solid #E52E7A;
-}
-.c_body:hover .tex{
-  background-color: #E52E7A;
-}
+/*.c_body:hover {*/
+/*  border: 4px solid #E52E7A;*/
+/*}*/
+/*.c_body:hover .tex{*/
+/*  background-color: #E52E7A;*/
+/*}*/
 .slog{
   position: absolute;
   height: 19px;
@@ -55,7 +60,6 @@ export default {
   right: 20%;
   top: 21px;
 
-  /*font-family: 'Trebuchet MS';*/
   font-style: normal;
   /*font-weight: 400;*/
   font-size: 16px;
@@ -69,7 +73,6 @@ export default {
   right: 19.06%;
   top: 36px;
 
-  /*font-family: 'Trebuchet MS';*/
   font-style: normal;
   font-weight: 700;
   font-size: 48px;
@@ -83,7 +86,6 @@ export default {
   right: 49.06%;
   top: 90px;
 
-  /*font-family: 'Trebuchet MS';*/
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -99,7 +101,6 @@ export default {
   /*right: 50.94%;*/
   top: 125px;
 
-  /*font-family: 'Trebuchet MS';*/
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -118,17 +119,6 @@ export default {
   height: 100%;
   border-radius: 8px;
 }
-/*.circle {*/
-/*  position: relative;*/
-/*  background: #1698D9;*/
-/*  !*border: 0.1875em solid #0F1C3F;*!*/
-/*  border-radius: 50%;*/
-/*  height: 80px;*/
-/*  width: 80px;*/
-/*  right: 0;*/
-/*  bottom: 0;*/
-/*  margin: 16px;*/
-/*}*/
 .tex{
   position: absolute;
   padding: 21px;
@@ -155,46 +145,49 @@ export default {
 .memepoint{
   color: #1698D9;
 }
-/*.weight{*/
-/*  !*font-family: 'Trebuchet MS';*!*/
-/*  font-style: normal;*/
-/*  font-weight: 400;*/
-/*  font-size: 42px;*/
-/*  line-height: 22px;*/
-/*  text-align: center;*/
-/*  color: #FFFFFF;*/
-/*}*/
 .text{
   bottom: 0;
   color: white;
   text-align: center;
   margin: 14px;
+  width: 100%;
+  overflow:hidden;
+
 }
 .text_hover{
   bottom: 0;
   color: white;
-  text-align: center;
   margin: 14px;
+  width: 100%;
+  overflow:hidden;
+
+}
+.block:hover .c_body{
+  border: 4px solid #E52E7A;
+
+}
+.block:hover .tex{
+  background-color: #E52E7A;
 }
 .change{
   overflow:hidden;
+}
+.change, .text, .text_hover{
   bottom: 0;
   color: white;
   text-align: center;
-  margin: 14px;
 }
-.tex, .text_hover{
+.text, .text_hover{
   float:left;
-  transition: all 0.5s;
+  transition: all 0.5s
 }
-.change:hover .tex{
-  margin-left:-2000px;
+.block:hover .text{
+  margin-left:-800px;
 }
 .text_hover{
-  margin-left:-400px;
+  margin-left:-800px;
 }
-.change:hover .text_hover{
+.block:hover .text_hover{
   margin-left:0;
 }
-
 </style>

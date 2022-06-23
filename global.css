@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "trebuchetms";
+  src: local("trebuchetms.ttf"),
+  url(static/TrebuchetMS/trebuchetms.ttf) format("truetype");
+}
+
+html {
+  font-family: "trebuchetms";
+}
