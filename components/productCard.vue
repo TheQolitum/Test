@@ -1,27 +1,25 @@
 <template>
   <div>
     <div class="block">
-    <div class="card">
-  <div class="c_body">
-    <div :class="product.class"></div>
-  <div class="slog">Сказочное заморское яство</div>
-    <div class="company">Нямушка</div>
-    <div class="tasty">{{product.name}}</div>
-    <div class="stock">{{product.nodeTypeString}}</div>
-    <div class="cat"></div>
-    <div class="tex">{{product.weight}}</div>
-  </div>
-
-      <div class="change">
-        <div class="text">
-          <p>Что сидишь? Порадуй котэ, <span class="buy">купи</span><span class="memepoint">.</span></p>
+      <div class="card">
+        <div class="c_body" v-bind:class="{red: isRed}"  @click="changeClass">
+          <div :class="product.class"></div>
+          <div class="slog">Сказочное заморское яство</div>
+          <div class="company">Нямушка</div>
+          <div class="tasty">{{product.name}}</div>
+          <div class="stock">{{product.nodeTypeString}}</div>
+          <div class="cat"></div>
+          <div class="tex" v-bind:class="{othertex: isOthertex}">{{product.weight}}</div>
         </div>
-        <div class="text_hover">
-          <p>{{product.description}}</p>
+        <div class="change">
+          <div class="text" v-bind:class="{descr: isDescr}">
+            <p>Что сидишь? Порадуй котэ, <span class="buy">купи</span><span class="memepoint">.</span></p>
+          </div>
+          <div class="text_hover" v-bind:class="{newdescr: isnewDecsr}">
+            <p>{{product.description}}</p>
+          </div>
         </div>
-    </div>
-
-    </div>
+      </div>
     </div>
   </div>
 </template>
@@ -29,8 +27,26 @@
 <script>
 export default {
   name: "productCard",
-  props: ["product"]
+  data() {
+    return {
+      isRed: false,
+      isOthertex: false,
+      isDescr: false,
+      isnewDecsr: false
+    }
+  },
+  props: ["product"],
+  methods: {
+    changeClass() {
+      this.isRed = !this.isRed;
+      this.isOthertex = !this.isOthertex;
+      this.isDescr = !this.isDescr;
+      this.isnewDecsr = !this.isnewDecsr;
+    }
+  }
 }
+
+
 </script>
 
 <style lang="css">
@@ -47,12 +63,9 @@ export default {
   position: relative;
   border-radius: 12px;
 }
-/*.c_body:hover {*/
-/*  border: 4px solid #E52E7A;*/
-/*}*/
-/*.c_body:hover .tex{*/
-/*  background-color: #E52E7A;*/
-/*}*/
+.red{
+    border: 4px solid #E52E7A;
+}
 .slog{
   position: absolute;
   height: 19px;
@@ -136,6 +149,9 @@ export default {
   color: #FFFFFF;
   letter-spacing: 3px;
 }
+.othertex{
+  background-color: #E52E7A;
+}
 .buy{
   color: #1698D9;
   text-decoration-line: underline;
@@ -160,11 +176,13 @@ export default {
   margin: 14px;
   width: 100%;
   overflow:hidden;
-
+  /*display: none;*/
+}
+.descr{
+  display: none;
 }
 .block:hover .c_body{
   border: 4px solid #E52E7A;
-
 }
 .block:hover .tex{
   background-color: #E52E7A;
@@ -188,6 +206,10 @@ export default {
   margin-left:-800px;
 }
 .block:hover .text_hover{
+  margin-left:0;
+}
+.newdescr{
+  /*display: none;*/
   margin-left:0;
 }
 </style>

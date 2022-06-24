@@ -1,13 +1,13 @@
 <template>
   <div class="body">
-  <div class="shadow">
-    <div class="container">
-      <div class="question">Ты сегодня покормил кота?</div>
-      <div class="flex">
-          <ProductCard
-            v-for="(product,key) in products"
-            :product="product"
-            :key="key" />
+    <div class="shadow">
+      <div class="container">
+        <div class="question">Ты сегодня покормил кота?</div>
+        <div class="flex">
+            <ProductCard
+              v-for="(product,key) in products"
+              :product="product"
+              :key="key" />
         </div>
       </div>
     </div>
@@ -44,7 +44,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style lang="css">
@@ -103,5 +102,6 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  flex: 0 0 33.333%;
 }
 </style>
