@@ -2,7 +2,7 @@
   <div class="body">
     <div class="shadow">
       <div class="container">
-        <div class="question">Ты сегодня покормил кота?</div>
+        <div class="question">Ты сегодня покормил своего кота?</div>
         <div class="flex">
             <ProductCard
               v-for="(product,key) in products"

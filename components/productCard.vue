@@ -2,7 +2,7 @@
   <div>
     <div class="block">
       <div class="card">
-        <div class="c_body" v-bind:class="{red: isRed}"  @click="changeClass">
+        <div class="card__body" v-bind:class="{red: isRed}"  @click="changeClass">
           <div :class="product.class"></div>
           <div class="slog">Сказочное заморское яство</div>
           <div class="company">Нямушка</div>
@@ -55,7 +55,7 @@ export default {
   height: 509px;
   position: relative;
 }
-.c_body{
+.card__body{
   width: 320px;
   height: 472px;
   background-color: white;
@@ -181,7 +181,7 @@ export default {
 .descr{
   display: none;
 }
-.block:hover .c_body{
+.block:hover .card__body{
   border: 4px solid #E52E7A;
 }
 .block:hover .tex{
